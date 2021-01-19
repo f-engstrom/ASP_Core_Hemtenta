@@ -1,0 +1,33 @@
+﻿@model ViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-6">
+            <img style="width:400px;height:600px;" src="@Html.DisplayFor(model => model.ClothingItem.ImageUrl)" />
+        </div>
+
+        <div class="col-6">
+            <h2>@Html.DisplayFor(model => model.ClothingItem.Name)</h2>
+            <p> @Html.DisplayFor(model => model.ClothingItem.Description)</p>
+            <p> @Html.DisplayFor(model => model.ClothingItem.Price) SEK</p>
+            <p>
+                @Html.DisplayNameFor(model => model.ClothingItem.ClimateCompensated)
+                @Html.DisplayFor(model => model.ClothingItem.ClimateCompensated)
+            </p>
+            <div>
+                <form asp-controller="Basket" asp-action="Add" method="post" class="form-inline">
+                    <button class="btn btn-outline-success my-2 my-sm-0" name="slug" value="@Html.DisplayFor(model => model.ClothingItem.UrlSlug)" type="submit">Köp</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<partial name="_RecommendedProducts" model="Model.Clothing" />

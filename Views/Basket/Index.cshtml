@@ -1,0 +1,77 @@
+﻿@model Basket
+
+@{
+    ViewBag.Title = "title";
+}
+
+@if (Model == null)
+{
+
+    <div class="text-center"><h2>Varukorgen är tom.</h2></div>
+}
+
+@if (Model != null)
+{
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Amount
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ProductBasket)
+        {
+            <tr>
+                <td>
+                    <a asp-route="productBySlug" asp-route-slug="@item.Key.UrlSlug">
+>
+                        @Html.DisplayFor(modelItem => item.Key.Name)
+                    </a>
+                </td>
+                <td>
+                    <img class="img-thumbnail" style="width:204px;height:auto;" src="@Html.DisplayFor(modelItem => item.Key.ImageUrl)" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Key.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+            </tr>
+        }
+        <tr>
+            <td>
+                <p style=" font-weight: bold;">
+                    @Html.DisplayNameFor(model => model.Total)
+
+                </p>
+            </td>
+            <td>
+                <p style=" font-weight: bold;">
+
+                    @Html.DisplayFor(model => model.Total)
+                </p>
+            </td>
+        </tr>
+
+
+    </tbody>
+</table>
+
+
+
+<button type="button" class="btn btn-primary btn-lg">Köp Nu</button>
+}
+

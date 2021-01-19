@@ -1,0 +1,10 @@
+﻿@model ASP_Core_Hemtenta.Models.Menu
+
+    <ul class="navbar-nav flex-grow-1">
+        @foreach (var menuItem in Model.MenuItems.OrderBy(x => x.Priority))
+        {
+            <li class="nav-item">
+                <a href="@menuItem.Link" class="nav-link">@menuItem.Name</a>
+            </li>
+        }
+    </ul>

@@ -1,0 +1,21 @@
+﻿@model List<Category>
+
+<div class="container-fluid pt-5">
+    <div class="row">
+
+        @foreach (var item in Model.Take(3))
+        {
+
+            <div class="col-4 text-center">
+                <a asp-route="categoryBySlug" asp-route-slug="@item.UrlSlug">
+                    <img style="width:380px;height:auto;" src="@Html.DisplayFor(modelItem => item.ImageUrl)">
+                    <div class="">
+                        <h5 class="">@Html.DisplayFor(modelItem => item.Name)</h5>
+                    </div>
+                </a>
+            </div>
+
+
+        }
+    </div>
+</div>

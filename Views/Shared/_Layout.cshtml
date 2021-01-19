@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ASP_Core_Hemtenta</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3">
+            <div class="container">
+
+                <div class="row">
+                    <div class="d-flex align-items-center col-6">
+                        <div class="logo">
+                            <a asp-controller="Home" asp-action="Index">
+                                <p>FreakyFashion</p>
+                            </a>
+                        </div>
+                        <div>
+                            <form asp-controller="Search" asp-action="" method="get" class="form-inline">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" name="q" aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-6 d-flex align-items-center justify-content-end">
+                        <partial name="_LoginPartial" />
+                        <a asp-controller="Basket" asp-action="Index">
+                            <img class="icon" src="https://image.flaticon.com/icons/svg/25/25619.svg" alt="">
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                            <vc:menu menu-name="MainMenu"></vc:menu>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+        <main>
+            @RenderBody()
+        </main>
+
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="dropdown-divider col-12"></div>
+                <div>
+                    <span>
+                        Shopping
+                    </span>
+                    <vc:menu menu-name="MainMenu"></vc:menu>
+                </div>
+                <div>
+                    <span>
+                        Mina Sidor
+                    </span>
+
+                    <ul>
+                        <li><a href="#1">Mina Ordrar</a></li>
+                        <li><a href="#2">Mitt Konto</a></li>
+
+                    </ul>
+                </div>
+                <div>
+                    <span>
+                        Kundtjänst
+                    </span>
+
+                    <ul>
+                        <li><a href="#1">Returpolicy</a></li>
+                        <li><a href="#2">Integritetspolicy</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="language-region">
+                    <span>
+                        Välj land och språk
+                    </span>
+                    <label for="country">
+                        Land
+                        <select name="country" id="country">
+                            <option value="svenska">Sverige</option>
+                            <option value="spanska">Spanien</option>
+                            <option value="ryska">Ryssland</option>
+                        </select>
+                    </label>
+
+                    <label for="language">
+                        Språk
+                        <select name="language" id="language">
+                            <option value="svenska">Svenska</option>
+                            <option value="spanska">Spanska</option>
+                            <option value="ryska">Ryska</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

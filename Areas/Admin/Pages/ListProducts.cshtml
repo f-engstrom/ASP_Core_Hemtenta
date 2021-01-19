@@ -1,0 +1,73 @@
+﻿@page
+
+@model ASP_Core_Hemtenta.Areas.Admin.Pages.ListProductsModel
+
+<div class="container">
+    
+    <div class="row">
+        <div class="col-6">
+            <a asp-area="Admin" asp-page="AddProduct"><div class="form-group">
+    <input type="submit" value="Create" class="btn btn-primary" />
+</div></a>
+        </div>
+
+        <div class="col-6">
+            <form method="get" class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" name="q" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>   </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Image Url
+                </th>
+                <th>
+                    Category
+                </th>
+                <th>
+                    Climate Compensated
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Clothing)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImageUrl)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClimateCompensated)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

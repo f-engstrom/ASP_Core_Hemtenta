@@ -1,0 +1,50 @@
+﻿@page
+
+@model ASP_Core_Hemtenta.Areas.Admin.Pages.AddProductModel
+
+
+
+
+<h1>Create</h1>
+
+<h4>Clothing</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductDto.Name" class="control-label"></label>
+                <input asp-for="ProductDto.Name" class="form-control" />
+                <span asp-validation-for="ProductDto.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductDto.Description" class="control-label"></label>
+                <input asp-for="ProductDto.Description" class="form-control" />
+                <span asp-validation-for="ProductDto.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductDto.Price" class="control-label"></label>
+                <input asp-for="ProductDto.Price" class="form-control" />
+                <span asp-validation-for="ProductDto.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductDto.ImageUrl" class="control-label"></label>
+                <input asp-for="ProductDto.ImageUrl" class="form-control" />
+                <span asp-validation-for="ProductDto.ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Category</label>
+                <select name="ProductDto.CategoryId" asp-items="Model.Categories" asp-for="ProductDto.CategoryId"></select>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ProductDto.ClimateCompensated" /> @Html.DisplayNameFor(model => model.ProductDto.ClimateCompensated)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

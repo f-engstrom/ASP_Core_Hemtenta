@@ -1,0 +1,32 @@
+﻿@model SearchViewModel
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+
+    <div class="container-fluid pt-4">
+        <div class="row">
+            @foreach (var item in Model.SearchResult)
+            {
+
+                <div class="col-3 text-center">
+                    <a asp-route="productBySlug" asp-route-slug="@item.UrlSlug">
+                        <img class="smallimage" src="@Html.DisplayFor(modelItem => item.ImageUrl)" alt="@item.Name">
+                        <div class="">
+                            <h5 class="">@Html.DisplayFor(modelItem => item.Name)</h5>
+                            <p>@Html.DisplayFor(modelItem => item.Price)</p>
+                        </div>
+                    </a>
+                </div>
+
+            }
+        </div>
+    </div>
+
+
+<div class="container pt-3">
+
+    <partial name="_RecommendedProducts" model="Model.RecommendedProducts"/>
+
+</div>

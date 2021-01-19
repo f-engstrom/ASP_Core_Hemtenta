@@ -1,0 +1,23 @@
+﻿@model List<Product>
+
+<div class="container-fluid pt-4">
+    
+    <p class="display-4"> <u>Rekommenderat för dig</u></p>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+            <div class="col-3 text-center">
+                <a asp-route="productBySlug" asp-route-slug="@item.UrlSlug">
+                    <img class="smallimage" src="@Html.DisplayFor(modelItem => item.ImageUrl)" alt="@item.Name">
+                    <div class="">
+                        <h5 class="">@Html.DisplayFor(modelItem => item.Name)</h5>
+                        <p>@Html.DisplayFor(modelItem => item.Price)</p>
+                    </div>
+                </a>
+            </div>
+
+        }
+    </div>
+</div>
